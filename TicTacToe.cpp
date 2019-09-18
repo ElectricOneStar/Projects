@@ -1,4 +1,4 @@
-//TicTacToe by Andrew Thomas. This game is the standard two-player tic tac toe game. There are two players X and O(X goes first) that alernate playing pieces on a 3 by 3 two dimentional board. If a player has 3 pieces lined up in any direction they win. If the board is filled and no player has won then it is a tie. This code will ask the player if they want to play again.  
+//TicTacToe by Andrew Thomas.9/18/2019.This game is the standard two-player tic tac toe game. There are two players X and O(X goes first) that alernate playing pieces on a 3 by 3 two dimentional board. If a player has 3 pieces lined up in any direction they win. If the board is filled and no player has won then it is a tie. This code will ask the player if they want to play again.  
 #include <iostream> //getting the libraries 
 #include <cstring>
 using namespace std; 
