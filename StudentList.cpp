@@ -1,6 +1,7 @@
 /*
 Student List by Andrew Thomas Mr.Galbraith P5 C++. Resources: Mr.Galbraith and C++ website. This code has a point of a vector with student points. student is a structure and has cstring for first name and lastname, int for id and float for the gpa. One can input the ADD, PRINT, DELETE, QUIT functions to the console. the ADD function adds the student to the vector and promps for the student's properties. PRINT is a function that prints the student properties. DELETE deletes the student pointer from the vector and will prompt for the id of the student you want to remove. Finally, QUIT terminates the program. 
  */
+#include <cstdlib> // I manually added this one because I used a mac. feel free to delete it if it causes any problems
 #include <iostream> // initializes libraries
 #include <cstring>
 #include <vector>
