@@ -1,7 +1,6 @@
 /*
 Student List by Andrew Thomas Mr.Galbraith P5 C++. Resources: Mr.Galbraith and C++ website. This code has a point of a vector with student points. student is a structure and has cstring for first name and lastname, int for id and float for the gpa. One can input the ADD, PRINT, DELETE, QUIT functions to the console. the ADD function adds the student to the vector and promps for the student's properties. PRINT is a function that prints the student properties. DELETE deletes the student pointer from the vector and will prompt for the id of the student you want to remove. Finally, QUIT terminates the program. 
  */
-#include <cstdlib> // I manually added this one because I used a mac. feel free to delete it if it causes any problems
 #include <iostream> // initializes libraries
 #include <cstring>
 #include <vector>
@@ -9,8 +8,8 @@ Student List by Andrew Thomas Mr.Galbraith P5 C++. Resources: Mr.Galbraith and C
 #include <iomanip>
 using namespace std; // uses namespace std
 struct Student{ // creates the structure student
-  char firstName[10000]; // initializes variables
-  char lastName[100000];
+  char firstName[20]; // initializes variables
+  char lastName[20];
   int id;
   float gpa;
 };
@@ -22,7 +21,7 @@ int main() { // main function
   char stopChar;
   vector<Student*>* v = new vector<Student*>;
   cout << "Welcome to StudentList. Here you can add, print, or delete sets of information about studnet. each set has the first name, last name, ID number, and GPA for the student. if you want to quit this app then type QUIT" << endl;
-  char input[1000000];
+  char input[20];
   char quit[5];
   //int ID;
   //int GPA;
@@ -57,7 +56,7 @@ int main() { // main function
 	    cout << "What would you like to do?" << endl;
 	    //if(strcmp(input, subtract) == 0){
 	    // cout << "are you sure you want to quit y/n" << endl;
-	    cin.get(input, 1000000); // asks and gets input
+	    cin.get(input, 20); // asks and gets input
 	    cin.clear();
 	    cin.ignore();
 	    if(strcmp(input, add) == 0){ // ADD function
@@ -71,7 +70,7 @@ int main() { // main function
 	    else if(strcmp(input, subtract) == 0){ // DELETE function
 	      //  cout << "Delete" << endl;
 	      Subtract(v); // DELETES
-	    }
+	      }
 	    else if(strcmp(input, quit) == 0){ // QUIT function
 	      stop = true; // sets the stop boolean to true
 	    }
@@ -91,13 +90,16 @@ int main() { // main function
 Student* Add(){ // creates the student pointer to add to vector
   Student *create = new Student(); // student created
   cout << "Please enter the student's first name." << endl;
-  cin.get((*create).firstName, 100000000); // firstname
+  cin.get((*create).firstName, 20); // firstname
+  //(*create).firstName.add('\0');
   cin.clear();
   cin.ignore();
+  (*create).firstName[20] = '\0';
   cout << "Please enter the student's last name." << endl;
-  cin.get((*create).lastName, 10000000); // lastname
+  cin.get((*create).lastName, 20); // lastname
   cin.clear();
   cin.ignore();
+  (*create).lastName[20] = '\0';
   cout << "Please enter the student's ID number." << endl;
   cin >>(*create).id; //id
   cin.clear();
@@ -106,9 +108,9 @@ Student* Add(){ // creates the student pointer to add to vector
     cin >> (*create).gpa; // gpa
     cin.clear();
     cin.ignore();
-    (*create).gpa = (int)((*create).gpa * 100 + 0.5);
+    //(*create).gpa = (int)((*create).gpa * 100 + 0.5);
     //cout << (*create).gpa << endl;
-   (*create).gpa = (float)(*create).gpa / 100;
+    //(*create).gpa = (float)(*create).gpa / 100;
   
     //cout << (*create).gpa << endl;
    //  (*create).gpa = round((*create).gpa);
@@ -142,17 +144,17 @@ void Subtract(vector<Student*>* v){ // deletes the student from the vector
 }
 void Print(vector<Student*>* v){ // prints all the students in the vector
   for(vector<Student*>::iterator it = (*v).begin(); it != (*v).end(); ++it){ // goes through the vector
-    for(int j =0; j<10000; j++){
+    for(int j =0; j<20; j++){
       cout << (*(*it)).firstName[j]; //prints first name
     }
     cout << " ";
-    for(int f = 0; f<10000; f++){
+    for(int f = 0; f<20; f++){
       cout << (*(*it)).lastName[f]; // prints last name
     }
     cout << ", "; 
     cout << (*(*it)).id; // prints ID
   cout << ", ";
-  cout << (*(*it)).gpa; // prints GPA
+  cout << fixed << setprecision(2) << (*(*it)).gpa; // prints GPA
   
   cout  << endl;
   }
