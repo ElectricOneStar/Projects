@@ -50,7 +50,7 @@ int main() { // main function
     print[2] = 'I';
     print[3] = 'N';
     print[4] = 'T';
-    print[5] - '\0'; // PRINT
+    print[5] = '\0'; // PRINT
     
     do{ // Continues running the programm until the QUIT funciton
 	    cout << "What would you like to do?" << endl;
@@ -144,11 +144,11 @@ void Subtract(vector<Student*>* v){ // deletes the student from the vector
 }
 void Print(vector<Student*>* v){ // prints all the students in the vector
   for(vector<Student*>::iterator it = (*v).begin(); it != (*v).end(); ++it){ // goes through the vector
-    for(int j =0; j<20; j++){
+    for(int j =0; j< strlen((*it)->firstName); j++){
       cout << (*(*it)).firstName[j]; //prints first name
     }
     cout << " ";
-    for(int f = 0; f<20; f++){
+    for(int f = 0; f<strlen((*it)->firstName); f++){
       cout << (*(*it)).lastName[f]; // prints last name
     }
     cout << ", "; 
